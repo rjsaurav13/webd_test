@@ -1,10 +1,3 @@
 ## COLLEGE DIRECTORY
 
 
-## Description
-SIMPLE WEBPAGE WITH LOGIN PAGE AND FORM WHICH DOES CERTAIN TASK WITH GIVEN INFORMATION
-
-## Authors
- [@rjsaurav13](https://github.com/rjsaurav13) 
-
-
