@@ -23,8 +23,48 @@
     <script src="formjss.js"></script>
 
 
+    
+
+
   </head>
    <body>
+     <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '{275241237985648}',
+        cookie     : true,
+        xfbml      : true,
+        version    : '{v6.0}'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    function fblogin(){
+      FB.login(function(response){
+            if(response.authResponse){
+              fbafterlogin();
+            }
+        });
+    }
+    function fbafterlogin(){
+      FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        FB.api('/me', function(response) {
+        console.log(response);
+      }
+    }
+  });
+}
+  </script>
     <nav class="navbar navbar-light bg-light justify-content-between">
     <div class="row my-row1 bg-light">
         <img src="PROJECTLOGO.PNG" alt="logo" width="45" height="45"></img>
@@ -144,7 +184,7 @@
             <hr class="my-4">
 
             <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;" type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
-            <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;" type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+            <a href="javascript:void(0)" onclick="fblogin()">Sign in with facebook</a>
 
             <button class="btn btn-light btn-lg btn-block" ><A HREF="indexxxx.html">Fill College Directory Form</A></button>
             
